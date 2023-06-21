@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IProduct } from 'src/app/shared/interfaces/product';
+import { OrdersService } from 'src/app/shared/services/orders/orders.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   public state = false;
-  constructor() { }
+  constructor(){}
 
   ngOnInit(): void {
   }
-
 }

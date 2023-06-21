@@ -1,0 +1,93 @@
+{
+  "actions": [
+    {
+      "name": "Рол тижня",
+      "title": "50% знижки на \"Рол тижня\"",
+      "description": "Щотижня діє знижка 50% на один з ролів у нашому меню. “Рол тижня” ви можете знайти на головній сторінці нашого сайту. Знижка діє при мінімальній сумі замовлення 300 грн. Ця акція не поєднується з іншими акціями.",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/mono-homework.appspot.com/o/images%2Factions%2Fimgonline-com-ua-compressed-ryna9n84oqh1-scaled-697x379.jpg?alt=media&token=4c6cc120-bc1a-4295-a616-c187a237dc44",
+      "date": "21.06.2023",
+      "id": 1
+    },
+    {
+      "name": "\"3+1=5\"",
+      "title": "\"3+1=5\"",
+      "description": "Замовляйте 5 ролів, а платіть за 4.\nЗамовляйте 10 ролів, а платіть за 8 і так далі.\nБезкоштовним вважається рол з найменшою вартістю.\nЦя акція не поєднується з іншими акціями.",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/mono-homework.appspot.com/o/images%2Factions%2Fimgonline-com-ua-compressed-pa0akdpwddstmsv1-scaled-697x379.jpg?alt=media&token=4a4585d8-8229-413d-b241-1361d605619f",
+      "date": "31.05.2023",
+      "id": 2
+    }
+  ],
+  "categories": [
+    {
+      "name": "роли",
+      "path": "roli",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/mono-homework.appspot.com/o/images%2Fcategories%2Fnav-img-rolls.svg?alt=media&token=8948f847-29f4-4d56-be44-37fd5be14f1c",
+      "id": 1
+    },
+    {
+      "name": "сети",
+      "path": "setu",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/mono-homework.appspot.com/o/images%2Fcategories%2Fnav-img-sets.svg?alt=media&token=a13c9543-b3ce-4905-abe1-de110df710e0",
+      "id": 2
+    },
+    {
+      "name": "напої",
+      "path": "napoyi",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/mono-homework.appspot.com/o/images%2Fcategories%2Fnav-img-drinks.svg?alt=media&token=7fa1b6d1-d4b0-4170-8b4f-60439f26f479",
+      "id": 3
+    },
+    {
+      "name": "соуси",
+      "path": "sousi",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/mono-homework.appspot.com/o/images%2Fcategories%2Ficon.svg?alt=media&token=fe1c6cf7-8925-413a-ab1d-24331029ee7c",
+      "id": 4
+    }
+  ],
+  "products": [
+    {
+      "name": "Філадельфія з лососем",
+      "path": "filadelfiya-z-lososem",
+      "imagePath": "https://firebasestorage.googleapis.com/v0/b/mono-homework.appspot.com/o/images%2Fproducts%2F1.-filadelfiya-z-lososem.jpg.pagespeed.ce.axvTz8qDqj.jpg?alt=media&token=881bb799-a5a2-43c6-a89d-c0faf69a4f12",
+      "ingredients": "Риc, крем сир, огірок, лосось",
+      "weight": 280,
+      "price": 267,
+      "count": 1,
+      "category": {
+        "name": "роли",
+        "path": "roli",
+        "imagePath": "https://firebasestorage.googleapis.com/v0/b/mono-homework.appspot.com/o/images%2Fcategories%2Fnav-img-rolls.svg?alt=media&token=8948f847-29f4-4d56-be44-37fd5be14f1c",
+        "id": 1
+      },
+      "id": 1
+    }
+  ],
+  "users": [
+    {
+      "name": "saf",
+      "surname": "sdfa",
+      "tel": "0502581458",
+      "email": "zaghurak@gmail.com",
+      "id": 1,
+      "role": "USER",
+      "password": "123"
+    },
+    {
+      "name": "saf",
+      "surname": "sdfa",
+      "tel": "0502581458",
+      "email": "pavlo@gmail.com",
+      "id": 1,
+      "role": "USER",
+      "password": "123"
+    },
+    {
+      "name": "saf",
+      "surname": "sdfa",
+      "tel": "0502581458",
+      "email": "petro@gmail.com",
+      "id": 1,
+      "role": "USER",
+      "password": "123"
+    }
+  ]
+}
