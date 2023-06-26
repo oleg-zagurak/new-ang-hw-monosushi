@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IUser } from 'src/app/shared/interfaces/user';
+import { NavigationStart, Router } from '@angular/router';
+import { ROLE } from 'src/app/shared/interfaces/user';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
 
 @Component({
@@ -16,10 +17,20 @@ export class AuthorizationComponent {
   public registerForm!: FormGroup;
   public loginError = false;
   public disabledOnLoad = false;
-  constructor(private fb: FormBuilder, private auth: AuthService) { }
+  public isLogged = false;
+  public isAdmin = false;
+  constructor(private fb: FormBuilder,
+    private auth: AuthService,
+    private router: Router) { }
   ngOnInit(): void {
     this.initLoginForm();
     this.initRegisterForm();
+    this.initCurrentUser();
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationStart) {
+        this.closeOnNavigate();
+      }
+    })
   }
   initLoginForm(): void {
     this.loginForm = this.fb.group({
@@ -39,17 +50,32 @@ export class AuthorizationComponent {
     })
   }
 
+  initCurrentUser(): void{
+    let userStr = localStorage.getItem('currentUser');
+    if(userStr){
+      let user = JSON.parse(userStr);
+      if(user.role === ROLE.ADMIN) this.isAdmin = true;
+      this.isLogged = true;
+    }
+  }
+
   login(): void {
     this.disabledOnLoad = true;
     const subscription = this.auth.login(this.loginForm.value.email, this.loginForm.value.password).subscribe({
-      next: (user) => {
-        if (!user) {
+      next: (userList) => {
+        if (userList.length === 0) {
           this.loginError = true;
         } else {
-          
+          const user = userList[0];
+          localStorage.setItem('currentUser', JSON.stringify(user));
+          this.isLogged = true;
+          if(user.role === ROLE.USER) this.router.navigateByUrl('/kabinet');
+          if(user.role === ROLE.ADMIN) {
+            this.isAdmin = true;
+            this.router.navigateByUrl('/admin');
+          }
         }
         this.disabledOnLoad = false;
-        console.log(user);
       },
       error: (e) => {
         console.error(e);
@@ -59,14 +85,24 @@ export class AuthorizationComponent {
       }
     })
   }
-  private redirect(): void {
 
+  logout(): void{
+    this.auth.logout();
+    this.isAdmin = false;
+    this.loginError = false;
+    this.isLogged = false;
+    this.state = false;
   }
   showReg(): void {
     this.regStatus = !this.regStatus;
   }
   showAuth(): void {
-    this.showModal = !this.showModal
+    if(!this.isLogged) this.showModal = !this.showModal;
+  }
+  showSecNav(): void{
+    if(this.isLogged){
+      this.state = !this.state;
+    }
   }
   close(event: Event) {
     let target: HTMLElement = event.target as HTMLElement;
@@ -74,5 +110,12 @@ export class AuthorizationComponent {
       this.regStatus = false;
       this.showModal = false;
     }
+  }
+  closeOnNavigate(): void{
+    this.state = false;
+    this.regStatus = false;
+    this.showModal = false;
+    this.loginForm.reset();
+    this.registerForm.reset();
   }
 }

@@ -86,7 +86,7 @@
       "tel": "0502581458",
       "email": "petro@gmail.com",
       "id": 1,
-      "role": "USER",
+      "role": "ADMIN",
       "password": "123"
     }
   ]

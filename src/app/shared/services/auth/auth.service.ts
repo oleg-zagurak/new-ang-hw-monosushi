@@ -11,10 +11,14 @@ export class AuthService {
   private api = `${environment.BACK_URL}${environment.API.users}`;
   constructor(private http: HttpClient) { }
 
-  login(email: string, password: string): Observable<IUser>{
-   return this.http.get<IUser>(`${this.api}?email=${email}&password=${password}`);
+  login(email: string, password: string): Observable<IUser[]>{
+   return this.http.get<IUser[]>(`${this.api}?email=${email}&password=${password}`);
   }
   register(user: IUserReq): Observable<IUser>{
     return this.http.post<IUser>(this.api, user);
+  }
+
+  logout(): void{
+    localStorage.removeItem('currentUser');
   }
 }
