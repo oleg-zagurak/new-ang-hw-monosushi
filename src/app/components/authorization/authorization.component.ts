@@ -31,6 +31,9 @@ export class AuthorizationComponent {
         this.closeOnNavigate();
       }
     })
+    this.auth.logoutSubject.subscribe(() => {
+      this.resetOnLogout();
+    })
   }
   initLoginForm(): void {
     this.loginForm = this.fb.group({
@@ -88,6 +91,8 @@ export class AuthorizationComponent {
 
   logout(): void{
     this.auth.logout();
+  }
+  resetOnLogout(): void{
     this.isAdmin = false;
     this.loginError = false;
     this.isLogged = false;

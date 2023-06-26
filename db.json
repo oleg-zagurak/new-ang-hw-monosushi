@@ -63,29 +63,20 @@
   ],
   "users": [
     {
-      "name": "saf",
+      "name": "Petro",
       "surname": "sdfa",
       "tel": "0502581458",
-      "email": "zaghurak@gmail.com",
+      "email": "user@gmail.com",
       "id": 1,
       "role": "USER",
       "password": "123"
     },
     {
-      "name": "saf",
+      "name": "Pavlo",
       "surname": "sdfa",
       "tel": "0502581458",
-      "email": "pavlo@gmail.com",
-      "id": 1,
-      "role": "USER",
-      "password": "123"
-    },
-    {
-      "name": "saf",
-      "surname": "sdfa",
-      "tel": "0502581458",
-      "email": "petro@gmail.com",
-      "id": 1,
+      "email": "admin@gmail.com",
+      "id": 2,
       "role": "ADMIN",
       "password": "123"
     }

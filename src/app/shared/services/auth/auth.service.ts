@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IUser, IUserReq } from '../../interfaces/user';
 import { environment } from 'src/environments/environment';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private api = `${environment.BACK_URL}${environment.API.users}`;
+  public logoutSubject = new Subject<void>();
   constructor(private http: HttpClient) { }
 
   login(email: string, password: string): Observable<IUser[]>{
@@ -20,5 +21,6 @@ export class AuthService {
 
   logout(): void{
     localStorage.removeItem('currentUser');
+    this.logoutSubject.next();
   }
 }
