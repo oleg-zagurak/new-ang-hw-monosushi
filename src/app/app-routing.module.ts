@@ -21,6 +21,7 @@ import { PasswordComponent } from './page/kabinet/password/password.component';
 import { UserInfoComponent } from './page/kabinet/user-info/user-info.component';
 import { OfertaComponent } from './page/oferta/oferta.component';
 import { authAccessGuard } from './shared/guards/auth-access/auth-access.guard';
+import { AdminAuthComponent } from './page/admin/admin-auth/admin-auth.component';
 
 
 const routes: Routes = [
@@ -38,6 +39,7 @@ const routes: Routes = [
     {path: 'password', component: PasswordComponent},
     {path: '', pathMatch: 'full', redirectTo: 'info'},
   ]},
+  {path: 'admin-login', component: AdminAuthComponent},
   {path: 'admin', component: AdminComponent, canActivate: [authAccessGuard], children: [
     {path: 'actions', component: AdminActionsComponent},
     {path: 'categories', component: AdminCategoryComponent},

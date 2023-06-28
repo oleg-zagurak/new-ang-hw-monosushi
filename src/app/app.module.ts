@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { SwiperModule } from 'swiper/angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -34,6 +33,13 @@ import { HistoryComponent } from './page/kabinet/history/history.component';
 import { PasswordComponent } from './page/kabinet/password/password.component';
 import { SavePopupComponent } from './components/save-popup/save-popup.component';
 import { OfertaComponent } from './page/oferta/oferta.component';
+import { AuthDialogComponent } from './components/auth-dialog/auth-dialog.component';
+import { BasketDialogComponent } from './components/basket-dialog/basket-dialog.component';
+
+import { provideAuth, getAuth} from '@angular/fire/auth';
+import { provideFirestore, getFirestore} from '@angular/fire/firestore';
+import { AdminAuthComponent } from './page/admin/admin-auth/admin-auth.component';
+import { SharedModule } from './shared/modules/shared-module/shared-module.module';
 
 
 @NgModule({
@@ -63,15 +69,20 @@ import { OfertaComponent } from './page/oferta/oferta.component';
     PasswordComponent,
     SavePopupComponent,
     OfertaComponent,
+    AuthDialogComponent,
+    BasketDialogComponent,
+    AdminAuthComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SwiperModule,
     HttpClientModule,
     ReactiveFormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideStorage(() => getStorage())
+    provideStorage(() => getStorage()),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

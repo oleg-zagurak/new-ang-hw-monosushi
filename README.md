@@ -1,3 +1,16 @@
+## Added authorization via firebase
+
+ADMIN account:
+        email: `admin@gmail.com`
+        password: `qwerty123`
+User account:
+        email: `user@gmail.com`
+        password: `qwerty123`
+
+## Added admin login page
+
+Navigate to `http://localhost:4200/admin-login`
+
 # Monosushi
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.2.
