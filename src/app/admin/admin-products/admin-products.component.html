@@ -7,7 +7,7 @@
             <div class="row">
                 <select name="categoryId" formControlName="category" [compareWith]="compareOptions">
                     <option [ngValue]="null" disabled>Виберіть категорію</option>
-                    <option [ngValue]="category" *ngFor="let category of categories; let isFirst = first">
+                    <option *ngFor="let category of categories; let isFirst = first" [ngValue]="category">
                         {{category?.name}}</option>
                 </select>
             </div>

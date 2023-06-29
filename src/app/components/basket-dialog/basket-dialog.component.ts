@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { IProduct } from 'src/app/shared/interfaces/product';
 import { OrdersService } from 'src/app/shared/services/orders/orders.service';

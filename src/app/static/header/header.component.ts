@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { IProduct } from 'src/app/shared/interfaces/product';
-import { OrdersService } from 'src/app/shared/services/orders/orders.service';
+
+import { MatDialog } from '@angular/material/dialog';
+import { CallbackComponent } from 'src/app/components/callback/callback.component';
 
 @Component({
   selector: 'app-header',
@@ -9,8 +10,15 @@ import { OrdersService } from 'src/app/shared/services/orders/orders.service';
 })
 export class HeaderComponent implements OnInit {
   public state = false;
-  constructor(){}
+  constructor(private dialog: MatDialog){}
 
   ngOnInit(): void {
+  }
+
+  showCallback(): void{
+    this.dialog.open(CallbackComponent, {
+      backdropClass: 'tel-bg',
+      panelClass: 'tel-panel'
+    })
   }
 }
